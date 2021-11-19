@@ -9,23 +9,27 @@ import EditableRow from "./components/EditableRow";
 
 const App = () => {
 
-  const api_url = 
-      "https://api.npoint.io/db8936f9a89036178988";
+  const [contacts, setContacts] = useState([]);
+     
 
-      const [data, setData] = useState("");
+  useEffect(() => { 
+    const api_url = 
+    "https://api.npoint.io/db8936f9a89036178988";
 
-      useEffect(() => { fetch(api_url).then(
-              function(u){ return u.json();}
-            ).then(
-              function(json){
-                setData(json)
-              }
-            )
-      }, []);
+    const fetchData = async () => {
+        try {
+            const response = await fetch(api_url);
+            const json = await response.json();
+            console.log(json);
+            setContacts(json);
+        } catch (error) {
+            console.log("error", error);
+        }
+      }
 
-  console.log({ data })
+      fetchData();
+  }, []);
 
-  const [contacts, setContacts] = useState(data);
   const [addFormData, setAddFormData] = useState({
     fullName: "",
     address: "",
