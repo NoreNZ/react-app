@@ -1,6 +1,6 @@
 import React from "react";
 
-const ReadOnlyRowCustomer = ({ contact, handleEditClick, handleDeleteClick }) => {
+const ReadOnlyTableRow = ({ contact, handleEditClick, handleDeleteClick }) => {
   return (
     <tr>
       <td>{contact.name}</td>
@@ -24,4 +24,4 @@ const ReadOnlyRowCustomer = ({ contact, handleEditClick, handleDeleteClick }) =>
   );
 };
 
-export default ReadOnlyRowCustomer;
+export default ReadOnlyTableRow;

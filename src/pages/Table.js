@@ -1,34 +1,12 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { nanoid } from "nanoid";
-import "./Customer.css";
+import "./Table.css";
 //import data from "./mock-data";
-import ReadOnlyRowCustomer from "../components/ReadOnlyRowCustomer";
-import EditableRowCustomer from "../components/EditableRowCustomer";
+import ReadOnlyTableRow from "../components/ReadOnlyTableRow";
+import EditableTableRow from "../components/EditableTableRow";
 
-//https://api.npoint.io/db8936f9a89036178988
 
-function Customer() {
-
-  const [contacts, setContacts] = useState([]);
-     
-
-  useEffect(() => { 
-    const api_url = 
-    "https://api.npoint.io/03f147d9f120cfebf707";
-
-    const fetchData = async () => {
-        try {
-            const response = await fetch(api_url);
-            const json = await response.json();
-            console.log(json);
-            setContacts(json);
-        } catch (error) {
-            console.log("error", error);
-        }
-      }
-
-      fetchData();
-  }, []);
+function Table(props) {
 
   const [addFormData, setAddFormData] = useState({
     name: "",

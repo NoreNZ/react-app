@@ -1,6 +1,6 @@
 import React from "react";
 
-const EditableRowCustomer = ({
+const EditableTableRow = ({
   editFormData,
   handleEditFormChange,
   handleCancelClick,
@@ -62,4 +62,4 @@ const EditableRowCustomer = ({
   );
 };
 
-export default EditableRowCustomer;
+export default EditableTableRow;
