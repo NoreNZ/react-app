@@ -1,0 +1,26 @@
+import React from "react";
+
+const ReadOnlyRowOrders = ({ order, handleEditClick, handleDeleteClick }) => {
+  return (
+    <tr>
+      <td>{order.name}</td>
+      <td>{order.price}</td>
+      <td>{order.inventory}</td>
+      <td>
+        <button
+          type="button"
+          onClick={(event) => handleEditClick(event, order)}
+        >
+          Edit
+        </button>
+        <button type="button" 
+        onClick={() => handleDeleteClick(order.id)}
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  );
+};
+
+export default ReadOnlyRowOrders;

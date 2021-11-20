@@ -1,20 +1,20 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { nanoid } from "nanoid";
-import "./App.css";
+import "./Customer.css";
 //import data from "./mock-data";
-import ReadOnlyRow from "./components/ReadOnlyRow";
-import EditableRow from "./components/EditableRow";
+import ReadOnlyRowCustomer from "../components/ReadOnlyRowCustomer";
+import EditableRowCustomer from "../components/EditableRowCustomer";
 
 //https://api.npoint.io/db8936f9a89036178988
 
-const App = () => {
+function Customer() {
 
   const [contacts, setContacts] = useState([]);
      
 
   useEffect(() => { 
     const api_url = 
-    "https://api.npoint.io/db8936f9a89036178988";
+    "https://api.npoint.io/03f147d9f120cfebf707";
 
     const fetchData = async () => {
         try {
@@ -31,14 +31,14 @@ const App = () => {
   }, []);
 
   const [addFormData, setAddFormData] = useState({
-    fullName: "",
+    name: "",
     address: "",
     phoneNumber: "",
     email: "",
   });
 
   const [editFormData, setEditFormData] = useState({
-    fullName: "",
+    name: "",
     address: "",
     phoneNumber: "",
     email: "",
@@ -75,7 +75,7 @@ const App = () => {
 
     const newContact = {
       id: nanoid(),
-      fullName: addFormData.fullName,
+      name: addFormData.name,
       address: addFormData.address,
       phoneNumber: addFormData.phoneNumber,
       email: addFormData.email,
@@ -90,7 +90,7 @@ const App = () => {
 
     const editedContact = {
       id: editContactId,
-      fullName: editFormData.fullName,
+      name: editFormData.name,
       address: editFormData.address,
       phoneNumber: editFormData.phoneNumber,
       email: editFormData.email
@@ -111,7 +111,7 @@ const App = () => {
     setEditContactId(contact.id);
 
     const formValues = {
-      fullName: contact.fullName,
+      name: contact.name,
       address: contact.address,
       phoneNumber: contact.phoneNumber,
       email:contact.email,
@@ -135,7 +135,7 @@ const App = () => {
   }
 
   return (
-  <div className="app-container">
+  <div className="customers">
     <form onSubmit={handleEditFormSubmit}>
     <table>
       <thead>
@@ -151,13 +151,13 @@ const App = () => {
         {contacts.map((contact) => (
           <Fragment>
             { editContactId === contact.id ?(
-              <EditableRow 
+              <EditableRowCustomer 
               editFormData={editFormData} 
               handleEditFormChange={handleEditFormChange}
               handleCancelClick={handleCancelClick}
               />
               ) : ( 
-              <ReadOnlyRow 
+              <ReadOnlyRowCustomer 
                 contact={contact} 
                 handleEditClick={handleEditClick}
                 handleDeleteClick={handleDeleteClick}
@@ -173,7 +173,7 @@ const App = () => {
     <form onSubmit={handleAddFormSubmit}>
       <input 
       type="text" 
-      name="fullName" 
+      name="name" 
       required="required"
       placeholder="Enter a name..."
       onChange={handleAddFormChange}
@@ -205,4 +205,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Customer;

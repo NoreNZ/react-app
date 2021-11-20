@@ -7,7 +7,18 @@
   }
   
   body {
-    background-color: rgb(24, 17, 80);
+    background-color: #060b26;
+  }
+
+  h2 {
+    padding: 10px;
+    color : white;
+  }
+
+  form {
+    padding: 10px;
+    font-size: 10px;
+    text-align: center;
   }
   
   table {
@@ -28,7 +39,7 @@
   }
   
   td {
-    background-color: rgb(46, 33, 148);
+    background-color: rgb(255, 255, 255);
   }
   
   form {

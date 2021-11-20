@@ -1,12 +1,10 @@
 import React from 'react'
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
 
 export const SidebarData = [
     {
-        title: 'Customer',
-        path: '/customer',
+        title: 'Customers',
+        path: '/customers',
         icon: <IoIcons.IoIosBody />,
         cName: 'nav-text',
     },
